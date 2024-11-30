@@ -26,6 +26,12 @@ let parts = [
   ];
   parts.push(...a);
   const handlePartsChange = (id: string) => {
+    const storedValue = localStorage.getItem('point');
+    console.log(storedValue);
+    const a = [
+      {id: storedValue ?? '', name: storedValue ?? ''}
+    ];
+    parts.push(...a);
     setSelectedParts((prevSelected) =>
       prevSelected.includes(id)
         ? prevSelected.filter((part) => part !== id)
@@ -68,7 +74,13 @@ let parts = [
       <form className="calculation-form" onSubmit={(e) => e.preventDefault()}>
         <div className="parts-container">
           {parts.map((part) => (
-            <div key={part.id}className={`part-card ${ selectedParts.includes(part.id) ? "selected" : ""}`}onClick={() => handlePartsChange(part.id)}>
+            <div
+              key={part.id}
+              className={`part-card ${
+                selectedParts.includes(part.id) ? "selected" : ""
+              }`}
+              onClick={() => handlePartsChange(part.id)}
+            >
               <span>{part.name}</span>
             </div>
           ))}
