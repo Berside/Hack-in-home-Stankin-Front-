@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import "./image.css";
+import {post} from '../../utils/post';
 
 const PhotoUpload: React.FC = () => {
   const [cards, setCards] = useState<string[]>([""]); 
 
-  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  const handleUpload =  async (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const files = event.target.files;
     if (files && files[0]) {
       const newPhoto = URL.createObjectURL(files[0]);
       const formData = new FormData();
-      formData.append('image', files[0]);
+      console.log(files[0]);
+      formData.append('car_image', files[0]);
+      const response = await post(formData);
+      console.log(response);
       console.log(formData);
       console.log(newPhoto);
       setCards((prevCards) => {
         const updatedCards = [...prevCards];
         updatedCards[index] = newPhoto;
+
 
         if (updatedCards[index + 1] === undefined) {
           updatedCards.push("");

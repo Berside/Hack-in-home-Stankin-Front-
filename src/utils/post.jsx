@@ -3,7 +3,7 @@ const baseUrl = endpoints();
 
 export async function post(formdata) {
   try {
-    const response = await fetch(`${baseUrl}/api/v1/`, {
+    const response = await fetch(`${baseUrl}/api/v1/segmentation/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
