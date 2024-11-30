@@ -5,6 +5,7 @@ import CalculationForm from "./components/Calculate/Calculate.tsx";
 import CarModel from "./components/Car/Car.tsx";
 import Header from "./components/header/header.tsx";
 import "./App.css"
+import Footer from "./components/Footer/Footer.tsx";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <CalculationForm />
       </div>
       <CarModel />
+      <Footer/>
     </div>
   );
 }
