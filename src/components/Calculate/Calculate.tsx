@@ -6,14 +6,19 @@ const CalculationForm: React.FC = () => {
   const [areas, setAreas] = useState<{ [key: string]: number }>({});
   const [percentage, setPercentage] = useState<number>(0);
   const [result, setResult] = useState<number>(0);
-
+      const [heightTorch, setheightTorch] = useState('');
+    const [Vylet, setVylet] = useState('');
+    const [Sloi, setSloi] = useState('');
+    const [Rasxod, setRasxod] = useState('');
+    const [Trydo, setTrydo] = useState('');
+    const [Cost, setCost] = useState('');
+    const [Norma, setNorma] = useState('');
   const parts = [
     { id: "door", name: "Дверь", image: "door.png" },
     { id: "hood", name: "Капот", image: "hood.png" },
     { id: "bumper", name: "Бампер", image: "bumper.png" },
     { id: "roof", name: "Крыша", image: "roof.png" },
   ];
-
   const handlePartsChange = (id: string) => {
     setSelectedParts((prevSelected) =>
       prevSelected.includes(id)
@@ -37,8 +42,20 @@ const CalculationForm: React.FC = () => {
       (sum, part) => sum + (areas[part] || 0),
       0
     );
+    const b = heightTorch + Vylet;
+    const A = (totalArea * Number(b)) ** Number(Sloi);
+    const c =  (A / Number(Rasxod) * Number(Rasxod) ) * Number(Cost);
     const calculatedCost = (percentage / 100) * baseCostPerSquareMeter * totalArea;
-    setResult(calculatedCost);
+
+    const ob = (percentage / 100 ) * (totalArea) /  Number(heightTorch);
+    const ll = ob *  (100 - Number(Rasxod)) * Number(Sloi);
+    const Stoi = ll * Number(Cost) / 100;
+
+
+    const st = (percentage / 100) * totalArea;
+    const ab = st / Number(Rasxod);
+    const sum = ab * Number(Cost);
+    setResult(sum );
   };
 
   return (
@@ -63,13 +80,23 @@ const CalculationForm: React.FC = () => {
         {selectedParts.map((part) => (
           <div key={part} className="input-group">
             <label htmlFor={`area-${part}`}>Площадь {part} (м²):</label>
-            <input type="number" id={`area-${part}`} name={`area-${part}`} min="0" value={areas[part] || ""} onChange={(e) => handleAreaChange(part, parseFloat(e.target.value) || 0)} />
+            <input type="number" id={`area-${part}`} name={`area-${part}`} value={areas[part] || ""} onChange={(e) => handleAreaChange(part, parseFloat(e.target.value) || 0)} />
           </div>
         ))}
 
         <div className="input-group">
           <label htmlFor="percentage">Процент окраски:</label>
-          <input type="number" id="percentage"name="percentage"min="0"max="100"value={percentage}onChange={handlePercentageChange}/>
+          <input type="number" id="percentage"name="percentage"value={percentage}onChange={handlePercentageChange}/>
+          <label htmlFor="percentage">Ширина факела:</label>
+          <input type="number" id="percentage"name="percentage" value={heightTorch} onChange={(e) => setheightTorch(e.target.value)} />
+          <label htmlFor="percentage">Вылет факела за границы элемента при одном проходе:</label>
+          <input type="number" id="percentage"name="percentage" value={Vylet} onChange={(e) => setVylet(e.target.value)}/>
+          <label htmlFor="percentage">Количество слоев:</label>
+          <input type="number" id="percentage"name="percentage" value={Sloi} onChange={(e) => setSloi(e.target.value)}/>
+          <label htmlFor="percentage">Расход ЛКМ 1-го слоя на 1м2:</label>
+          <input type="number" id="percentage"name="percentage" value={Rasxod} onChange={(e) => setRasxod(e.target.value)} />
+          <label htmlFor="percentage">Стоимость 1л ЛКМ</label>
+          <input type="number" id="percentage"name="percentage"  value={Cost} onChange={(e) => setCost(e.target.value)}/>
         </div>
 
         <button type="button" className="calculate-button" onClick={handleCalculate}>Рассчитать</button>
