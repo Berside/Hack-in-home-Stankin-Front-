@@ -2,15 +2,13 @@ import endpoints from './endpoint.jsx';
 const baseUrl = endpoints();
 
 export async function post(formdata) {
+    console.log(formdata);
   try {
-    const response = await fetch(`${baseUrl}/api/v1/segmentation/`, {
+    const response = await fetch(`${baseUrl}/api/v1/segmentation`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: formdata
+      body: formdata,
     });
-    const result = await response.json();
+    const result = await response;
     console.log('Success:', result);
     return result;
   } catch (error) {
