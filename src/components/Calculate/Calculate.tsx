@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./calculate.css";
 
 const CalculationForm: React.FC = () => {
@@ -13,11 +13,11 @@ const CalculationForm: React.FC = () => {
     const [Trydo, setTrydo] = useState('');
     const [Cost, setCost] = useState('');
     const [Norma, setNorma] = useState('');
-  const parts = [
-    { id: "door", name: "Дверь", image: "door.png" },
-    { id: "hood", name: "Капот", image: "hood.png" },
-    { id: "bumper", name: "Бампер", image: "bumper.png" },
-    { id: "roof", name: "Крыша", image: "roof.png" },
+let parts = [
+    { id: "door", name: "Дверь"},
+    { id: "hood", name: "Капот"},
+    { id: "bumper", name: "Бампер"},
+    { id: "roof", name: "Крыша"},
   ];
   const handlePartsChange = (id: string) => {
     setSelectedParts((prevSelected) =>
@@ -26,7 +26,6 @@ const CalculationForm: React.FC = () => {
         : [...prevSelected, id]
     );
   };
-
   const handleAreaChange = (part: string, value: number) => {
     setAreas((prevAreas) => ({ ...prevAreas, [part]: value }));
   };
@@ -57,21 +56,13 @@ const CalculationForm: React.FC = () => {
     const sum = ab * Number(Cost);
     setResult(sum );
   };
-
   return (
     <div className="calculation-container">
       <h1 className="calculation-title">Расчет стоимости</h1>
       <form className="calculation-form" onSubmit={(e) => e.preventDefault()}>
         <div className="parts-container">
           {parts.map((part) => (
-            <div
-              key={part.id}
-              className={`part-card ${
-                selectedParts.includes(part.id) ? "selected" : ""
-              }`}
-              onClick={() => handlePartsChange(part.id)}
-            >
-              <img src={part.image} alt={part.name} className="part-image" />
+            <div key={part.id} className={`part-card ${ selectedParts.includes(part.id) ? "selected" : ""}`} onClick={() => handlePartsChange(part.id)}>
               <span>{part.name}</span>
             </div>
           ))}

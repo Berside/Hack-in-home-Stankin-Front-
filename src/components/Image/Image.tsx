@@ -8,7 +8,10 @@ const PhotoUpload: React.FC = () => {
     const files = event.target.files;
     if (files && files[0]) {
       const newPhoto = URL.createObjectURL(files[0]);
-
+      const formData = new FormData();
+      formData.append('image', files[0]);
+      console.log(formData);
+      console.log(newPhoto);
       setCards((prevCards) => {
         const updatedCards = [...prevCards];
         updatedCards[index] = newPhoto;
