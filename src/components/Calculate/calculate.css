@@ -91,7 +91,7 @@
   }
   
   .calculate-button:hover {
-    background: #004d40;
+    transform: scale(1.03);
   }
   
   .result {
