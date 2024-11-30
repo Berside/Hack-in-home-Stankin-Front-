@@ -1,0 +1,106 @@
+
+.calculation-container {
+    padding: 20px;
+    width: 25%;
+    background: linear-gradient(to bottom right, #172d73, #23619a);
+    border-radius: 5%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    display: grid;
+    margin-left: 5%;
+    opacity: 95%;
+  }
+  
+  .calculation-title {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .calculation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .parts-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: white;
+  }
+  
+  .part-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 120px;
+    background: white;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+    color: #006064;
+  }
+  
+  .part-card.selected {
+    color: #ffffff;
+  }
+  
+  .part-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .part-image {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 30px;
+    color: white;
+  }
+  
+  .input-group label {
+    font-weight: bold;
+    
+  }
+  
+  .input-group input {
+    padding: 10px;
+    font-size: 30px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+  
+  .calculate-button {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .calculate-button:hover {
+    background: #004d40;
+  }
+  
+  .result {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+  }
+  
+  .result span {
+    font-weight: bold;
+  }
+  

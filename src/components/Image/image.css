@@ -1,0 +1,93 @@
+.photo-upload {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #172d73, #23619a);
+    width: 25%;
+    margin-left: 20%;
+    border-radius: 5%;
+    background-color: black;
+  }
+  
+  .upload-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .card-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .photo-card {
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .photo-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .photo-label {
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    color: #172d73;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    text-align: center;
+  }
+  
+  .photo-label:hover {
+    background: rgba(255, 255, 255, 1);
+  }
+  
+  .photo-input {
+    display: none;
+  }
+  
+  .uploaded-photo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .remove-photo-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+  }
+  
+  .remove-photo-button:hover {
+    background: #e60000;
+  }
+  
