@@ -59,6 +59,8 @@ let count = 0 ;
         formData.append('car_image', files[0]); 
         const response = await post(formData)
         console.log(response.headers)
+        console.log(JSON.parse(response.headers.get('classes')?? ""))
+        localStorage.setItem("x",response.headers.get('classes') ?? "")
         const newPhoto = URL.createObjectURL(await response.blob());
         setPhoto(newPhoto); // Устанавливаем фото
       }
@@ -66,6 +68,7 @@ let count = 0 ;
   
     const removePhoto = () => {
       setPhoto(null);
+      localStorage.setItem('x','[]')
     };
 
     return (

@@ -65,7 +65,7 @@ let parts = [
 
     const st = (percentage / 100) * totalArea;
     const ab = st / Number(Rasxod);
-    const sum = ab * Number(Cost);
+    const sum = ab * Number(Cost)**Number(Sloi);
     setResult(sum );
   };
   return (

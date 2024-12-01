@@ -27,6 +27,7 @@
   align-items: center;
   transform-origin: center center;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .view3d-square canvas {

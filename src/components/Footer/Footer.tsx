@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
             <button className="subscriptionButton">➔</button>
           </div>
           <div className="socialIcons">
-            <img src="/vk-icon.png" alt="VK" />
+            <img src="/vkpng.png" alt="VK" />
             <img src="/ok-icon.png" alt="Одноклассники" />
             <img src="/telegram-icon.png" alt="Telegram" />
             <img src="/rutube-icon.png" alt="Rutube" />
